@@ -38,10 +38,19 @@ resource "aws_security_group" "my_sg" {
   }
 }
 
-# Create a key pair for the EC2 instance
+resource "tls_private_key" "my_private_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
 resource "aws_key_pair" "my_key" {
   key_name   = "my-key"
-  public_key = file("~/.ssh/id_rsa.pub")
+  public_key = tls_private_key.my_private_key.public_key_openssh
+}
+
+output "private_key_pem" {
+  value     = tls_private_key.my_private_key.private_key_pem
+  sensitive = true
 }
 
 # Create an EC2 instance
