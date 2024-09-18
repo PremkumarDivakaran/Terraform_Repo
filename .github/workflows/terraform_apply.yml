@@ -1,10 +1,10 @@
-name: Terraform Apply Workflow
+name: Terraform Apply
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   apply:
