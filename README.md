@@ -1,19 +1,10 @@
-Terraform Resource (in this code - EC2 Instance) Provisioning with GitHub Actions
+**Terraform Resource (in this code - EC2 Instance) Provisioning with GitHub Actions**
 
 This project uses Terraform to provision and manage an AWS EC2 instance through GitHub Actions workflows. The repository includes workflows for both creating and destroying the EC2 instance.
 
-Table of Contents
-Overview
-Workflows
-Setup
-Usage
-Cleaning Up
-License
-Overview
-This project automates the creation and deletion of an EC2 instance on AWS using Terraform, triggered by GitHub Actions. The workflows in this repository handle the following tasks:
-
 Create EC2 Instance: Provisions an EC2 instance using Terraform.
 Destroy EC2 Instance: Deletes the EC2 instance when no longer needed.
+
 Workflows
 1. Create EC2 Workflow
 This workflow automatically applies the Terraform plan to create an EC2 instance when a push is made to the main branch.
@@ -23,9 +14,9 @@ This workflow allows for manual or scheduled execution to destroy the EC2 instan
 
 Setup
 AWS Credentials: Ensure that your AWS credentials (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY) are added to the GitHub repository secrets.
+Create S3 bucket name - myproj-terraform-state-bucket (change the bucket name as required in code) to store terraform state file
 
 Repository Secrets:
-
 Go to your GitHub repository.
 Navigate to Settings > Secrets and variables > Actions.
 Add the following secrets:
@@ -44,3 +35,4 @@ Cleaning Up
 To destroy the EC2 instance, either:
 Manually run the Destroy EC2 Workflow from the Actions tab.
 Alternatively, push to a specific branch if the workflow is configured to trigger on pushes or PR merges.
+
